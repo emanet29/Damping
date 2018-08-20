@@ -9,17 +9,26 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var bouton: UIButton!
+    
+    @IBOutlet weak var titreView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.animate(withDuration: 2, delay: 2, usingSpringWithDamping: 0.1, initialSpringVelocity: 0.9, options: .curveLinear, animations: {
+            self.titreView.center.y = 60
+            
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 2, delay: 4, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.4, options: .curveLinear, animations: {
+            self.bouton.center.y = self.view.frame.height - 100
+        }, completion: nil)
     }
-
-
+    
 }
 
